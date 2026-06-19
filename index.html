@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruri Gallery — Opening Soon</title>
+<meta name="description" content="Ruri Gallery is an international, curated platform for contemporary art — opening soon. Join the list to be first to know when open calls launch.">
+<link rel="icon" type="image/png" href="brand/favicon-64.png">
+<link rel="apple-touch-icon" href="brand/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --white:#ffffff;
+    --gray-50:#f7f7f5;
+    --gray-100:#ececea;
+    --gray-300:#cccac4;
+    --gray-400:#9a9a94;
+    --gray-600:#5c5c58;
+    --font-display:'Fraunces', serif;
+    --font-mark:'Archivo', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --max:760px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:var(--font-body);
+    color:var(--black);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--black);color:var(--white);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:var(--font-mark);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--gray-600);
+  }
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  /* ===== HEADER ===== */
+  header{padding:36px 0;}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:13px;}
+  .logo-ruri{font-family:var(--font-mark);font-weight:700;font-size:17px;letter-spacing:0.14em;}
+  .logo-div{width:1px;height:15px;background:var(--black);}
+  .logo-gallery{font-family:var(--font-mark);font-weight:600;font-size:10px;letter-spacing:0.2em;color:var(--gray-600);}
+  .ig-link{font-family:var(--font-mark);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid var(--black);padding-bottom:3px;}
+
+  /* ===== HERO ===== */
+  main{flex:1;display:flex;align-items:center;}
+  .hero{padding:48px 0 64px;text-align:center;}
+  .badge{
+    display:inline-block;font-family:var(--font-mark);font-size:11px;font-weight:500;
+    letter-spacing:0.14em;text-transform:uppercase;
+    border:1px solid var(--black);border-radius:999px;padding:8px 18px;margin-bottom:32px;
+  }
+  .hero h1{
+    font-family:var(--font-display);font-weight:500;font-size:clamp(32px,5.4vw,52px);
+    line-height:1.14;letter-spacing:-0.01em;
+  }
+  .hero p.lead{
+    margin:24px auto 0;max-width:520px;color:var(--gray-600);font-size:16px;
+  }
+
+  /* ===== SIGNUP ===== */
+  .signup{margin-top:40px;max-width:420px;margin-left:auto;margin-right:auto;}
+  .nform{display:flex;gap:10px;}
+  .nform input{
+    flex:1;background:transparent;border:none;border-bottom:1px solid var(--gray-400);
+    color:var(--black);font-family:var(--font-body);font-size:14px;padding:12px 2px;outline:none;
+  }
+  .nform input::placeholder{color:var(--gray-400);}
+  .nform button{
+    background:var(--black);color:var(--white);border:none;font-family:var(--font-mark);
+    font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    padding:0 22px;cursor:pointer;white-space:nowrap;
+  }
+  .nform button:hover{opacity:0.8;}
+  .nform-msg{font-size:13px;color:var(--gray-600);margin-top:14px;display:none;}
+  .nform-msg.show{display:block;}
+  .signup-note{font-size:11px;color:var(--gray-400);margin-top:14px;letter-spacing:0.02em;}
+
+  /* ===== MANIFESTO ===== */
+  .manifesto{background:var(--gray-50);padding:64px 0;text-align:center;margin-top:56px;}
+  .manifesto blockquote{
+    font-family:var(--font-display);font-style:italic;font-weight:500;
+    font-size:clamp(19px,2.4vw,26px);line-height:1.5;
+  }
+
+  /* ===== BELIEFS ===== */
+  .beliefs{padding:64px 0;}
+  .beliefs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center;}
+  .beliefs-grid p{font-size:13px;color:var(--gray-600);max-width:220px;margin:0 auto;}
+  @media (max-width:680px){.beliefs-grid{grid-template-columns:1fr;gap:28px;}.beliefs-grid p{max-width:340px;}}
+
+  /* ===== FOOTER ===== */
+  footer{padding:32px 0 40px;border-top:1px solid var(--gray-100);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--gray-600);}
+  .footer-inner a:hover{color:var(--black);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="#" class="logo">
+      <span class="logo-ruri">RURI</span>
+      <span class="logo-div"></span>
+      <span class="logo-gallery">GALLERY</span>
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="ig-link">Instagram ↗</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero reveal is-visible">
+      <span class="badge">Opening Soon</span>
+      <h1>A gallery that looks at the work first.</h1>
+      <p class="lead">We're building an international platform that reviews every submission on its own terms — not on who already knows your name. Open calls, curated exhibitions, and a printed catalog are coming. Whether you've shown for years or have never submitted anywhere before, this is being built for you too.</p>
+
+      <div class="signup">
+        <form class="nform" id="newsletterForm">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Notify me</button>
+        </form>
+        <p class="nform-msg" id="nformMsg">You're on the list — we'll be in touch.</p>
+        <p class="signup-note">Be first to know when the first open call opens. No spam, just real updates.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<section class="manifesto reveal">
+  <div class="wrap">
+    <blockquote>"Talent doesn't wait for a CV. Neither will we."</blockquote>
+  </div>
+</section>
+
+<section class="beliefs reveal">
+  <div class="wrap">
+    <div class="beliefs-grid">
+      <p>Every submission is reviewed individually — not filtered by who you already know.</p>
+      <p>Open to artists at any stage: first submission or fifteenth exhibition.</p>
+      <p>What you make is what we look at. Nothing else factors in.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Ruri Gallery</span>
+    <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('newsletterForm');
+  const msg = document.getElementById('nformMsg');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    /* TODO: replace this simulated handler with a real Beehiiv subscribe
+       embed/form once the Beehiiv publication is set up — either swap this
+       <form> for Beehiiv's embed snippet, or POST to the Beehiiv
+       subscribe API endpoint with your publication ID + API key. */
+    msg.classList.add('show');
+    form.reset();
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
