@@ -77,6 +77,21 @@
   .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--gray-600);}
   .footer-inner a:hover{color:var(--ink);}
   .footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+
+  /* ===== SELECTION GRID (results template — see HTML comment below) ===== */
+  .selection{padding:88px 0;text-align:center;}
+  .selection .eyebrow{display:block;margin-bottom:20px;}
+  .selection h2{font-family:var(--font-display);font-weight:600;font-size:clamp(28px,3.8vw,42px);line-height:1.18;max-width:620px;margin:0 auto 18px;}
+  .selection-intro{color:var(--gray-600);font-size:15px;max-width:540px;margin:0 auto 56px;}
+  .artist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 32px;text-align:left;}
+  .artist-img{display:block;width:100%;aspect-ratio:4/5;border-radius:4px;background:var(--mist-200) center/cover no-repeat;margin-bottom:16px;}
+  .artist-name{font-family:var(--font-display);font-weight:600;font-size:18px;margin-bottom:4px;}
+  .artist-loc{font-family:var(--font-mark);font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px;}
+  .artist-stmt{color:var(--gray-600);font-size:13.5px;line-height:1.7;margin-bottom:12px;}
+  .artist-link{font-family:var(--font-mark);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:2px;}
+  .artist-link:hover{border-color:var(--ink);}
+  @media (max-width:860px){.artist-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.artist-grid{grid-template-columns:1fr;gap:32px;}.selection{padding:64px 0;}}
 </style>
 </head>
 <body>
@@ -144,6 +159,45 @@
     </div>
   </div>
 </section>
+
+<!--
+  ============================================================
+  SELECTED ARTISTS — results template (currently OFF)
+  ============================================================
+  When results are announced (Aug 14, 2026):
+    1. Delete or comment out the <section class="soon"> block above.
+    2. Delete this comment-opening line and the closing "-->" line
+       below to turn this section ON.
+    3. Duplicate the single <article class="artist-card"> block
+       once per selected artist. Replace the image, name,
+       location, one-line statement, and portfolio/IG link for
+       each. Put artist images in assets/artists/.
+    4. Adjust the count in the h2 below ("X artists") to match
+       how many you actually selected.
+
+<section class="selection reveal">
+  <div class="wrap-wide">
+    <span class="eyebrow">First Open Call &mdash; Selected</span>
+    <h2>X artists, selected on the work alone.</h2>
+    <p class="selection-intro">No CV, no waitlist, no following required &mdash; these are the artists whose work stood out from this round's open call. Every submission was reviewed individually and chosen on the work alone.</p>
+
+    <div class="artist-grid">
+
+      <article class="artist-card">
+        <a href="https://instagram.com/artisthandle" target="_blank" rel="noopener" class="artist-img" style="background-image:url('../assets/artists/artist-01.jpg');"></a>
+        <h3 class="artist-name">Artist Name</h3>
+        <p class="artist-loc">City, Country</p>
+        <p class="artist-stmt">One line on the work &mdash; medium, theme, or approach.</p>
+        <a href="https://instagram.com/artisthandle" target="_blank" rel="noopener" class="artist-link">View portfolio &rarr;</a>
+      </article>
+
+      <!-- duplicate the <article class="artist-card"> block above for every additional selected artist -->
+
+    </div>
+  </div>
+</section>
+
+-->
 
 <footer>
   <div class="wrap-wide footer-inner">
