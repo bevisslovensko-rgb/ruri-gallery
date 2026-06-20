@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ruri Gallery — Opening Soon</title>
-<meta name="description" content="Ruri Gallery is an international, curated platform for contemporary art — opening soon. Join the list to be first to know when open calls launch.">
+<title>Ruri Gallery &mdash; Opening Soon</title>
+<meta name="description" content="Ruri Gallery is an international, curated platform for contemporary art &mdash; opening soon. Join the list to be first to know when open calls launch.">
 <link rel="icon" type="image/png" href="brand/favicon-64.png">
 <link rel="apple-touch-icon" href="brand/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,7 +121,7 @@
       <span class="logo-div"></span>
       <span class="logo-gallery">GALLERY</span>
     </a>
-    <a href="https://instagram.com" target="_blank" rel="noopener" class="ig-link">Instagram ↗</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="ig-link">Instagram &#8599;</a>
   </div>
 </header>
 
@@ -130,14 +130,14 @@
     <section class="hero reveal is-visible">
       <span class="badge">Opening Soon</span>
       <h1>A gallery that looks at the work first.</h1>
-      <p class="lead">We're building an international platform that reviews every submission on its own terms — not on who already knows your name. Open calls, curated exhibitions, and a printed catalog are coming. Whether you've shown for years or have never submitted anywhere before, this is being built for you too.</p>
+      <p class="lead">We're building an international platform that reviews every submission on its own terms &mdash; not on who already knows your name. Open calls, curated exhibitions, and a printed catalog are coming. Whether you've shown for years or have never submitted anywhere before, this is being built for you too.</p>
 
       <div class="signup">
         <form class="nform" id="newsletterForm">
-          <input type="email" placeholder="Your email address" required>
-          <button type="submit">Notify me</button>
+          <input type="email" id="nformEmail" placeholder="Your email address" required>
+          <button type="submit" id="nformSubmit">Notify me</button>
         </form>
-        <p class="nform-msg" id="nformMsg">You're on the list — we'll be in touch.</p>
+        <p class="nform-msg" id="nformMsg">You're on the list &mdash; we'll be in touch.</p>
         <p class="signup-note">Be first to know when the first open call opens. No spam, just real updates.</p>
       </div>
     </section>
@@ -153,7 +153,7 @@
 <section class="beliefs reveal">
   <div class="wrap">
     <div class="beliefs-grid">
-      <p>Every submission is reviewed individually — not filtered by who you already know.</p>
+      <p>Every submission is reviewed individually &mdash; not filtered by who you already know.</p>
       <p>Open to artists at any stage: first submission or fifteenth exhibition.</p>
       <p>What you make is what we look at. Nothing else factors in.</p>
     </div>
@@ -162,23 +162,50 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <span>© 2026 Ruri Gallery</span>
+    <span>&copy; 2026 Ruri Gallery</span>
     <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a>
-    <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener">Instagram &#8599;</a>
   </div>
 </footer>
 
 <script>
   const form = document.getElementById('newsletterForm');
   const msg = document.getElementById('nformMsg');
-  form.addEventListener('submit', (e) => {
+  const emailInput = document.getElementById('nformEmail');
+  const submitBtn = document.getElementById('nformSubmit');
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    /* TODO: replace this simulated handler with a real Beehiiv subscribe
-       embed/form once the Beehiiv publication is set up — either swap this
-       <form> for Beehiiv's embed snippet, or POST to the Beehiiv
-       subscribe API endpoint with your publication ID + API key. */
-    msg.classList.add('show');
-    form.reset();
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    submitBtn.disabled = true;
+    const originalLabel = submitBtn.textContent;
+    submitBtn.textContent = '...';
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.ok) {
+        msg.textContent = "You're on the list - we'll be in touch.";
+        msg.classList.add('show');
+        form.reset();
+      } else {
+        msg.textContent = data.error || 'Something went wrong. Please try again.';
+        msg.classList.add('show');
+      }
+    } catch (err) {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.classList.add('show');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
   });
 
   const reveals = document.querySelectorAll('.reveal');
