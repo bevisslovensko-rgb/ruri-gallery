@@ -57,7 +57,8 @@
   .logo-ruri{font-family:var(--font-mark);font-weight:700;font-size:17px;letter-spacing:0.14em;}
   .logo-div{width:1px;height:15px;background:var(--black);}
   .logo-gallery{font-family:var(--font-mark);font-weight:600;font-size:10px;letter-spacing:0.2em;color:var(--gray-600);}
-  .ig-link{font-family:var(--font-mark);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid var(--black);padding-bottom:3px;}
+  .ig-link{font-family:var(--font-mark);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid var(--black);padding-bottom:3px;display:inline-flex;align-items:center;gap:6px;}
+  .ig-svg{width:13px;height:13px;display:block;flex-shrink:0;}
 
   /* ===== HERO ===== */
   main{flex:1;display:flex;align-items:center;}
@@ -110,6 +111,7 @@
   footer{padding:32px 0 40px;border-top:1px solid var(--gray-100);}
   .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--gray-600);}
   .footer-inner a:hover{color:var(--black);}
+  .footer-ig{display:inline-flex;align-items:center;gap:6px;}
 </style>
 </head>
 <body>
@@ -121,7 +123,13 @@
       <span class="logo-div"></span>
       <span class="logo-gallery">GALLERY</span>
     </a>
-    <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener" class="ig-link">Instagram &#8599;</a>
+    <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener" class="ig-link">Instagram
+      <svg class="ig-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+    </a>
   </div>
 </header>
 
@@ -164,7 +172,13 @@
   <div class="wrap footer-inner">
     <span>&copy; 2026 Ruri Gallery</span>
     <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a>
-    <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram &#8599;</a>
+    <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener" class="footer-ig">Instagram
+      <svg class="ig-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+    </a>
   </div>
 </footer>
 
