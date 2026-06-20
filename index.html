@@ -84,18 +84,22 @@
   }
 
   /* ===== HERO ===== */
-  .hero{padding:64px 0 56px;text-align:center;}
+  .hero{
+    position:relative;padding:150px 0 124px;text-align:center;color:var(--white);
+    background-image:linear-gradient(180deg, rgba(8,7,11,.58), rgba(8,7,11,.72)), url('assets/hero-home.jpg');
+    background-size:cover;background-position:center;
+  }
   .badge{
     display:inline-block;font-family:var(--font-mark);font-size:11px;font-weight:600;
     letter-spacing:0.12em;text-transform:uppercase;
-    border:1px solid var(--ink);border-radius:999px;padding:8px 18px;margin-bottom:32px;
+    border:1px solid rgba(255,255,255,.55);color:var(--white);border-radius:999px;padding:8px 18px;margin-bottom:32px;
   }
   .hero h1{
     font-family:var(--font-display);font-weight:600;font-size:clamp(34px,5.6vw,56px);
     line-height:1.1;letter-spacing:-0.01em;
   }
   .hero p.lead{
-    margin:24px auto 0;max-width:540px;color:var(--gray-600);font-size:16px;
+    margin:24px auto 0;max-width:540px;color:rgba(255,255,255,.84);font-size:16px;
   }
   .hero-actions{margin-top:36px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;}
   .cta-solid{
@@ -104,11 +108,15 @@
     padding:15px 30px;border-radius:999px;
   }
   .cta-solid:hover{opacity:0.85;}
+  .hero .cta-solid{background:var(--white);color:var(--ink);}
   .cta-ghost{
     font-family:var(--font-mark);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
     color:var(--gray-600);border-bottom:1px solid var(--line);padding-bottom:3px;transition:color .2s,border-color .2s;
   }
   .cta-ghost:hover{color:var(--ink);border-color:var(--ink);}
+  .hero .cta-ghost{color:rgba(255,255,255,.86);border-bottom-color:rgba(255,255,255,.4);}
+  .hero .cta-ghost:hover{color:var(--white);border-bottom-color:var(--white);}
+  @media (max-width:680px){.hero{padding:104px 0 88px;}}
 
   /* ===== MANIFESTO ===== */
   .manifesto{background:var(--mist);padding:60px 0;text-align:center;}

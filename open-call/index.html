@@ -75,18 +75,22 @@
   @media (max-width:760px){.nav-right .nav-link, .nav-right .nav-pill{display:none;}.ham{display:flex;}}
 
   /* ===== HERO ===== */
-  .hero{padding:56px 0 56px;text-align:center;}
+  .hero{
+    position:relative;padding:142px 0 116px;text-align:center;color:var(--white);
+    background-image:linear-gradient(180deg, rgba(8,7,11,.58), rgba(8,7,11,.72)), url('../assets/hero-opencall.jpg');
+    background-size:cover;background-position:center;
+  }
   .badge{
     display:inline-block;font-family:var(--font-mark);font-size:11px;font-weight:600;
     letter-spacing:0.12em;text-transform:uppercase;
-    border:1px solid var(--ink);border-radius:999px;padding:8px 18px;margin-bottom:32px;
+    border:1px solid rgba(255,255,255,.55);color:var(--white);border-radius:999px;padding:8px 18px;margin-bottom:32px;
   }
   .hero h1{
     font-family:var(--font-display);font-weight:600;font-size:clamp(32px,5.4vw,52px);
     line-height:1.14;letter-spacing:-0.01em;
   }
   .hero p.lead{
-    margin:24px auto 0;max-width:520px;color:var(--gray-600);font-size:16px;
+    margin:24px auto 0;max-width:520px;color:rgba(255,255,255,.84);font-size:16px;
   }
   .hero .cta-row{margin-top:32px;}
   .cta-link{
@@ -95,6 +99,8 @@
     padding:15px 30px;border-radius:999px;
   }
   .cta-link:hover{opacity:0.85;}
+  .hero .cta-link{background:var(--white);color:var(--ink);}
+  @media (max-width:680px){.hero{padding:100px 0 84px;}}
 
   /* ===== MANIFESTO ===== */
   .manifesto{background:var(--mist);padding:56px 0;text-align:center;}
