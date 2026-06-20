@@ -54,6 +54,7 @@
     color:var(--gray-600);padding:13px 0;border-bottom:1px solid var(--mist-200);}
   .mobile-menu a.active{color:var(--ink);}
   .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu a.mobile-apply{color:var(--white);background:var(--ink);text-align:center;border-radius:999px;border-bottom:none;margin-top:8px;}
   @media (max-width:760px){.nav-right .nav-link, .nav-right .nav-pill{display:none;}.ham{display:flex;}}
 
   .page-header{padding:64px 0 48px;border-bottom:1px solid var(--line);text-align:center;}
@@ -115,7 +116,7 @@
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
         </svg>
       </a>
-      <a href="../open-call/index.html" class="nav-pill">Apply now</a>
+      <a href="../open-call/index.html#apply" class="nav-pill">Apply now</a>
     </div>
     <button class="ham" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -129,6 +130,7 @@
       <a href="../open-call/index.html">Open Call</a>
       <a href="index.html" class="active">Newsletter</a>
       <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram</a>
+      <a href="../open-call/index.html#apply" class="mobile-apply">Apply now</a>
     </div>
   </div>
 </header>
