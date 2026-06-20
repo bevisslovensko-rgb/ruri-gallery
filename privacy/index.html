@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy &mdash; Ruri Gallery</title>
+<meta name="description" content="Privacy Policy for Ruri Gallery &mdash; how we collect, use, and protect your data.">
+<link rel="icon" type="image/png" href="../brand/favicon-64.png">
+<link rel="apple-touch-icon" href="../brand/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101114;--white:#ffffff;--mist:#f1f2f4;--mist-200:#e7e8eb;--line:#dcdde1;
+    --gray-400:#8d8f95;--gray-600:#52545a;
+    --font-display:'Space Grotesk', sans-serif;--font-mark:'Archivo', sans-serif;--font-body:'Inter', sans-serif;
+    --max:780px;--max-wide:920px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--ink);color:var(--white);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .wrap-wide{max-width:var(--max-wide);margin:0 auto;padding:0 28px;}
+  .eyebrow{font-family:var(--font-mark);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-600);}
+
+  header{padding:28px 0;border-bottom:1px solid var(--line);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:13px;flex-shrink:0;}
+  .logo-ruri{font-family:var(--font-mark);font-weight:700;font-size:17px;letter-spacing:0.14em;}
+  .logo-div{width:1px;height:15px;background:var(--ink);}
+  .logo-gallery{font-family:var(--font-mark);font-weight:600;font-size:10px;letter-spacing:0.2em;color:var(--gray-600);}
+  .nav-right{display:flex;align-items:center;gap:30px;}
+  .nav-link{font-family:var(--font-mark);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-600);
+    padding-bottom:3px;border-bottom:1px solid transparent;transition:color .2s, border-color .2s;}
+  .nav-link:hover{color:var(--ink);}
+  .nav-ig{display:inline-flex;align-items:center;color:var(--gray-600);transition:color .2s;}
+  .nav-ig:hover{color:var(--ink);}
+  .nav-pill{font-family:var(--font-mark);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    background:var(--ink);color:var(--white);padding:10px 20px;border-radius:999px;}
+  .nav-pill:hover{opacity:0.85;}
+  .ig-svg{width:15px;height:15px;display:block;}
+  .ham{display:none;flex-direction:column;gap:5px;padding:4px;background:none;border:none;cursor:pointer;}
+  .ham span{display:block;width:20px;height:1.5px;background:var(--ink);}
+  .mobile-menu{display:none;flex-direction:column;border-top:1px solid var(--line);padding:8px 0 4px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-family:var(--font-mark);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--gray-600);padding:13px 0;border-bottom:1px solid var(--mist-200);}
+  .mobile-menu a:last-child{border-bottom:none;}
+  @media (max-width:760px){.nav-right .nav-link, .nav-right .nav-pill{display:none;}.ham{display:flex;}}
+
+  .page-header{padding:64px 0 48px;border-bottom:1px solid var(--line);}
+  .page-header .eyebrow{display:block;margin-bottom:20px;}
+  .page-header h1{font-family:var(--font-display);font-weight:600;font-size:clamp(30px,4.6vw,44px);line-height:1.12;margin-bottom:16px;}
+  .page-header p{color:var(--gray-600);font-size:14.5px;max-width:520px;}
+
+  .policy-body{padding:48px 0 80px;}
+  .policy-updated{font-family:var(--font-mark);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-400);margin-bottom:40px;}
+  .policy-section{padding:28px 0;border-top:1px solid var(--mist-200);}
+  .policy-section:first-of-type{border-top:none;padding-top:0;}
+  .policy-section h2{font-family:var(--font-display);font-weight:600;font-size:20px;margin-bottom:12px;}
+  .policy-section p{font-size:14px;color:var(--gray-600);line-height:1.85;margin-bottom:12px;}
+  .policy-section p:last-child{margin-bottom:0;}
+  .policy-section ul{margin:0 0 12px 20px;}
+  .policy-section li{font-size:14px;color:var(--gray-600);line-height:1.85;margin-bottom:8px;}
+  .policy-section a{color:var(--ink);border-bottom:1px solid var(--line);}
+  .policy-section a:hover{border-color:var(--ink);}
+
+  footer{padding:32px 0 40px;border-top:1px solid var(--line);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--gray-600);}
+  .footer-inner a:hover{color:var(--ink);}
+  .footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap-wide header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-ruri">RURI</span>
+      <span class="logo-div"></span>
+      <span class="logo-gallery">GALLERY</span>
+    </a>
+    <div class="nav-right">
+      <a href="../about/index.html" class="nav-link">About</a>
+      <a href="../artists/index.html" class="nav-link">Artists</a>
+      <a href="../open-call/index.html" class="nav-link">Open Call</a>
+      <a href="../newsletter/index.html" class="nav-link">Newsletter</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
+        <svg class="ig-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="../open-call/index.html" class="nav-pill">Apply now</a>
+    </div>
+    <button class="ham" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="wrap-wide">
+      <a href="../index.html">Home</a>
+      <a href="../about/index.html">About</a>
+      <a href="../artists/index.html">Artists</a>
+      <a href="../open-call/index.html">Open Call</a>
+      <a href="../newsletter/index.html">Newsletter</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <span class="eyebrow">Ruri Gallery</span>
+    <h1>Privacy Policy</h1>
+    <p>How we collect, use, and protect the information you share with us.</p>
+  </div>
+</section>
+
+<section class="policy-body">
+  <div class="wrap">
+    <p class="policy-updated">Last updated &mdash; June 20, 2026</p>
+
+    <div class="policy-section">
+      <h2>Who we are</h2>
+      <p>Ruri Gallery is an independent curatorial platform for contemporary painting and graphic art. This policy explains what information we collect through rurigallery.com, why we collect it, and how you can control it. For any question, contact us at <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a>.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>What we collect</h2>
+      <p>We only collect information you choose to give us, through two channels on this site:</p>
+      <ul>
+        <li><strong>Newsletter signup</strong> &mdash; when you subscribe, your email address is collected and stored by our newsletter provider, Beehiiv, so we can send you the newsletter.</li>
+        <li><strong>Open call submissions</strong> &mdash; when you apply to an open call, the information you submit (such as name, email, portfolio or website links, social media handle, artwork images, and your message) is processed through our form provider, Web3Forms, and delivered to our inbox.</li>
+      </ul>
+      <p>We do not use any analytics or tracking cookies on this site.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Why we collect it</h2>
+      <ul>
+        <li>To send you the Ruri Gallery newsletter, if you've subscribed.</li>
+        <li>To review open call submissions and respond to general enquiries.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>Third-party services we use</h2>
+      <p>We rely on a small number of trusted third-party services to run this site. Each has its own privacy policy governing how they handle data on our behalf:</p>
+      <ul>
+        <li><strong>Beehiiv</strong> &mdash; newsletter hosting and delivery.</li>
+        <li><strong>Web3Forms</strong> &mdash; processes and delivers open call submissions.</li>
+        <li><strong>Cloudflare</strong> &mdash; hosting and content delivery for this website.</li>
+      </ul>
+      <p>We do not sell your data, and we do not share it with anyone outside of these service providers.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>How long we keep it</h2>
+      <p>Newsletter email addresses are kept for as long as you remain subscribed. Open call submissions are kept for as long as needed to review your application, and as a record of our open call process &mdash; including, for selected artists, the production of our exhibition catalog and your profile on this site.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Your rights</h2>
+      <p>You can unsubscribe from the newsletter at any time using the link in any email we send. You can ask us to access, correct, or delete any personal data we hold about you by emailing <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a> &mdash; we'll respond as soon as we can.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy as the platform grows. Significant changes will be reflected here with an updated date at the top of this page.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide footer-inner">
+    <span>&copy; 2026 Ruri Gallery</span>
+    <div class="footer-links">
+      <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram</a>
+      <a href="index.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

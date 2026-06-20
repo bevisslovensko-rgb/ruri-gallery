@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artists &mdash; Ruri Gallery</title>
+<meta name="description" content="Artist profiles on Ruri Gallery open after our debut open call. Results announced August 14, 2026.">
+<link rel="icon" type="image/png" href="../brand/favicon-64.png">
+<link rel="apple-touch-icon" href="../brand/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101114;--white:#ffffff;--mist:#f1f2f4;--mist-200:#e7e8eb;--line:#dcdde1;
+    --gray-400:#8d8f95;--gray-600:#52545a;
+    --font-display:'Space Grotesk', sans-serif;--font-mark:'Archivo', sans-serif;--font-body:'Inter', sans-serif;
+    --max:780px;--max-wide:920px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;}
+  a{color:inherit;text-decoration:none;}
+  em{font-style:normal;font-weight:700;}
+  ::selection{background:var(--ink);color:var(--white);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .wrap-wide{max-width:var(--max-wide);margin:0 auto;padding:0 28px;}
+  .eyebrow{font-family:var(--font-mark);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-600);}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  header{padding:28px 0;border-bottom:1px solid var(--line);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:13px;flex-shrink:0;}
+  .logo-ruri{font-family:var(--font-mark);font-weight:700;font-size:17px;letter-spacing:0.14em;}
+  .logo-div{width:1px;height:15px;background:var(--ink);}
+  .logo-gallery{font-family:var(--font-mark);font-weight:600;font-size:10px;letter-spacing:0.2em;color:var(--gray-600);}
+  .nav-right{display:flex;align-items:center;gap:30px;}
+  .nav-link{font-family:var(--font-mark);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-600);
+    padding-bottom:3px;border-bottom:1px solid transparent;transition:color .2s, border-color .2s;}
+  .nav-link:hover{color:var(--ink);}
+  .nav-link.active{color:var(--ink);border-bottom-color:var(--ink);}
+  .nav-ig{display:inline-flex;align-items:center;color:var(--gray-600);transition:color .2s;}
+  .nav-ig:hover{color:var(--ink);}
+  .nav-pill{font-family:var(--font-mark);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    background:var(--ink);color:var(--white);padding:10px 20px;border-radius:999px;}
+  .nav-pill:hover{opacity:0.85;}
+  .ig-svg{width:15px;height:15px;display:block;}
+  .ham{display:none;flex-direction:column;gap:5px;padding:4px;background:none;border:none;cursor:pointer;}
+  .ham span{display:block;width:20px;height:1.5px;background:var(--ink);}
+  .mobile-menu{display:none;flex-direction:column;border-top:1px solid var(--line);padding:8px 0 4px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-family:var(--font-mark);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--gray-600);padding:13px 0;border-bottom:1px solid var(--mist-200);}
+  .mobile-menu a.active{color:var(--ink);}
+  .mobile-menu a:last-child{border-bottom:none;}
+  @media (max-width:760px){.nav-right .nav-link, .nav-right .nav-pill{display:none;}.ham{display:flex;}}
+
+  .soon{padding:96px 0;text-align:center;}
+  .soon .eyebrow{display:block;margin-bottom:24px;}
+  .soon h1{font-family:var(--font-display);font-weight:600;font-size:clamp(30px,4.6vw,46px);line-height:1.15;margin-bottom:20px;max-width:600px;margin-left:auto;margin-right:auto;}
+  .soon p{color:var(--gray-600);font-size:15px;max-width:480px;margin:0 auto 36px;}
+  .soon-panel{background:var(--mist);border-radius:4px;padding:32px;max-width:440px;margin:0 auto 36px;}
+  .soon-dates{display:flex;justify-content:center;gap:48px;}
+  .soon-dates .lbl{font-family:var(--font-mark);font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-400);margin-bottom:6px;}
+  .soon-dates .val{font-family:var(--font-display);font-weight:600;font-size:21px;}
+  .soon-actions{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;}
+  .cta-solid{display:inline-block;font-family:var(--font-mark);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    background:var(--ink);color:var(--white);padding:15px 30px;border-radius:999px;}
+  .cta-solid:hover{opacity:0.85;}
+  .cta-ghost{font-family:var(--font-mark);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--gray-600);border-bottom:1px solid var(--line);padding-bottom:3px;transition:color .2s,border-color .2s;}
+  .cta-ghost:hover{color:var(--ink);border-color:var(--ink);}
+
+  footer{padding:32px 0 40px;border-top:1px solid var(--line);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--gray-600);}
+  .footer-inner a:hover{color:var(--ink);}
+  .footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap-wide header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-ruri">RURI</span>
+      <span class="logo-div"></span>
+      <span class="logo-gallery">GALLERY</span>
+    </a>
+    <div class="nav-right">
+      <a href="../about/index.html" class="nav-link">About</a>
+      <a href="index.html" class="nav-link active">Artists</a>
+      <a href="../open-call/index.html" class="nav-link">Open Call</a>
+      <a href="../newsletter/index.html" class="nav-link">Newsletter</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
+        <svg class="ig-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="../open-call/index.html" class="nav-pill">Apply now</a>
+    </div>
+    <button class="ham" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="wrap-wide">
+      <a href="../index.html">Home</a>
+      <a href="../about/index.html">About</a>
+      <a href="index.html" class="active">Artists</a>
+      <a href="../open-call/index.html">Open Call</a>
+      <a href="../newsletter/index.html">Newsletter</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</header>
+
+<section class="soon reveal is-visible">
+  <div class="wrap">
+    <span class="eyebrow">Artists</span>
+    <h1>Profiles open after our debut open call.</h1>
+    <p>This page will hold the artists selected for Ruri Gallery's first curated exhibition. Submissions to our debut open call are free and open now &mdash; selected artists get a profile here.</p>
+
+    <div class="soon-panel">
+      <div class="soon-dates">
+        <div>
+          <p class="lbl">Submissions close</p>
+          <p class="val">Jul 31, 2026</p>
+        </div>
+        <div>
+          <p class="lbl">Results announced</p>
+          <p class="val">Aug 14, 2026</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="soon-actions">
+      <a href="../open-call/index.html" class="cta-solid">Apply now</a>
+      <a href="../newsletter/index.html" class="cta-ghost">Get notified at launch</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide footer-inner">
+    <span>&copy; 2026 Ruri Gallery</span>
+    <div class="footer-links">
+      <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram</a>
+      <a href="../privacy/index.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

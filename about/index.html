@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About &mdash; Ruri Gallery</title>
+<meta name="description" content="Ruri Gallery is an independent, international curated platform for contemporary painting and graphic art. No gallery backing, no algorithm &mdash; just the work.">
+<link rel="icon" type="image/png" href="../brand/favicon-64.png">
+<link rel="apple-touch-icon" href="../brand/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101114;--white:#ffffff;--mist:#f1f2f4;--mist-200:#e7e8eb;--line:#dcdde1;
+    --gray-400:#8d8f95;--gray-600:#52545a;
+    --font-display:'Space Grotesk', sans-serif;--font-mark:'Archivo', sans-serif;--font-body:'Inter', sans-serif;
+    --max:780px;--max-wide:920px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;}
+  a{color:inherit;text-decoration:none;}
+  em{font-style:normal;font-weight:700;}
+  ::selection{background:var(--ink);color:var(--white);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .wrap-wide{max-width:var(--max-wide);margin:0 auto;padding:0 28px;}
+  .eyebrow{font-family:var(--font-mark);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-600);}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  header{padding:28px 0;border-bottom:1px solid var(--line);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:13px;flex-shrink:0;}
+  .logo-ruri{font-family:var(--font-mark);font-weight:700;font-size:17px;letter-spacing:0.14em;}
+  .logo-div{width:1px;height:15px;background:var(--ink);}
+  .logo-gallery{font-family:var(--font-mark);font-weight:600;font-size:10px;letter-spacing:0.2em;color:var(--gray-600);}
+  .nav-right{display:flex;align-items:center;gap:30px;}
+  .nav-link{font-family:var(--font-mark);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-600);
+    padding-bottom:3px;border-bottom:1px solid transparent;transition:color .2s, border-color .2s;}
+  .nav-link:hover{color:var(--ink);}
+  .nav-link.active{color:var(--ink);border-bottom-color:var(--ink);}
+  .nav-ig{display:inline-flex;align-items:center;color:var(--gray-600);transition:color .2s;}
+  .nav-ig:hover{color:var(--ink);}
+  .nav-pill{font-family:var(--font-mark);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    background:var(--ink);color:var(--white);padding:10px 20px;border-radius:999px;}
+  .nav-pill:hover{opacity:0.85;}
+  .ig-svg{width:15px;height:15px;display:block;}
+  .ham{display:none;flex-direction:column;gap:5px;padding:4px;background:none;border:none;cursor:pointer;}
+  .ham span{display:block;width:20px;height:1.5px;background:var(--ink);}
+  .mobile-menu{display:none;flex-direction:column;border-top:1px solid var(--line);padding:8px 0 4px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-family:var(--font-mark);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--gray-600);padding:13px 0;border-bottom:1px solid var(--mist-200);}
+  .mobile-menu a.active{color:var(--ink);}
+  .mobile-menu a:last-child{border-bottom:none;}
+  @media (max-width:760px){.nav-right .nav-link, .nav-right .nav-pill{display:none;}.ham{display:flex;}}
+
+  .page-header{padding:64px 0 48px;border-bottom:1px solid var(--line);text-align:center;}
+  .page-header .eyebrow{display:block;margin-bottom:20px;}
+  .page-header h1{font-family:var(--font-display);font-weight:600;font-size:clamp(32px,5vw,50px);line-height:1.12;margin-bottom:18px;}
+  .page-header p{color:var(--gray-600);font-size:15px;max-width:520px;margin:0 auto;}
+
+  .about-body{padding:64px 0;}
+  .about-body .wrap{max-width:680px;}
+  .about-block{padding:36px 0;border-top:1px solid var(--mist-200);}
+  .about-block:first-of-type{border-top:none;padding-top:0;}
+  .about-block h2{font-family:var(--font-display);font-weight:600;font-size:23px;margin-bottom:14px;}
+  .about-block p{font-size:14.5px;color:var(--gray-600);line-height:1.85;margin-bottom:12px;}
+  .about-block p:last-child{margin-bottom:0;}
+
+  .values{padding:64px 0;background:var(--mist);}
+  .values .eyebrow{display:block;text-align:center;margin-bottom:36px;}
+  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .value-item .num{font-family:var(--font-display);font-weight:600;font-size:13px;color:var(--gray-400);margin-bottom:10px;}
+  .value-item h3{font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:8px;}
+  .value-item p{font-size:13.5px;color:var(--gray-600);line-height:1.75;}
+  @media (max-width:680px){.values-grid{grid-template-columns:1fr;gap:28px;}}
+
+  .contact-cta{padding:64px 0;text-align:center;}
+  .contact-cta h2{font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.2vw,34px);margin-bottom:16px;}
+  .contact-cta p{color:var(--gray-600);font-size:14.5px;max-width:440px;margin:0 auto 28px;}
+  .cta-solid{display:inline-block;font-family:var(--font-mark);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    background:var(--ink);color:var(--white);padding:15px 30px;border-radius:999px;}
+  .cta-solid:hover{opacity:0.85;}
+
+  footer{padding:32px 0 40px;border-top:1px solid var(--line);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--gray-600);}
+  .footer-inner a:hover{color:var(--ink);}
+  .footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap-wide header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-ruri">RURI</span>
+      <span class="logo-div"></span>
+      <span class="logo-gallery">GALLERY</span>
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link active">About</a>
+      <a href="../artists/index.html" class="nav-link">Artists</a>
+      <a href="../open-call/index.html" class="nav-link">Open Call</a>
+      <a href="../newsletter/index.html" class="nav-link">Newsletter</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
+        <svg class="ig-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="../open-call/index.html" class="nav-pill">Apply now</a>
+    </div>
+    <button class="ham" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="wrap-wide">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">About</a>
+      <a href="../artists/index.html">Artists</a>
+      <a href="../open-call/index.html">Open Call</a>
+      <a href="../newsletter/index.html">Newsletter</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header reveal is-visible">
+  <div class="wrap">
+    <span class="eyebrow">About Ruri Gallery</span>
+    <h1>An independent platform, built around the work &mdash; not the resume.</h1>
+    <p>Ruri Gallery is a new international curatorial platform for contemporary painting and graphic art. No gallery backing. No algorithm. Just a considered look at what artists are making, wherever they're making it.</p>
+  </div>
+</section>
+
+<section class="about-body">
+  <div class="wrap">
+
+    <div class="about-block reveal">
+      <h2>Why we exist</h2>
+      <p>Most of the places where contemporary art gets seen run on the same filters: who you know, where you studied, how many followers you have. We think the work itself should carry more weight than any of that.</p>
+      <p>Ruri Gallery is our attempt to build a different kind of platform &mdash; one where every submission to an open call gets looked at individually, and where being selected depends on what you made, not who introduced you.</p>
+    </div>
+
+    <div class="about-block reveal">
+      <h2>How it works</h2>
+      <p>A few times a year, we open an international call for contemporary painting and graphic art. Submissions are free and open to artists at any stage, anywhere in the world. Every entry is reviewed on its own terms.</p>
+      <p>Selected artists are featured in a curated digital exhibition, given a profile on Ruri Gallery, and included in a PDF catalog distributed to grow awareness of contemporary painting and graphic art internationally. We don't promise a permanent place on the site to everyone who applies &mdash; we promise a fair, individual look, and a real outcome for the artists we select.</p>
+    </div>
+
+    <div class="about-block reveal">
+      <h2>Who's behind it</h2>
+      <p>Ruri Gallery is founded and curated independently &mdash; no gallery, fund, or institution behind it. That's a deliberate choice: it keeps the curatorial judgment direct, and the platform answerable to the artists and audience it serves, not to a board.</p>
+      <p>As the platform grows, so will the way we work &mdash; but the starting principle stays the same: look at the work first.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="values reveal">
+  <div class="wrap">
+    <span class="eyebrow">What we hold to</span>
+    <div class="values-grid">
+      <div class="value-item">
+        <p class="num">01</p>
+        <h3>Curatorial integrity</h3>
+        <p>Every submission is reviewed on its own merits. Selection is a judgment about the work, never a transaction.</p>
+      </div>
+      <div class="value-item">
+        <p class="num">02</p>
+        <h3>Independence</h3>
+        <p>No gallery, sponsor, or institution shapes what we select. That keeps the curatorial line ours to answer for.</p>
+      </div>
+      <div class="value-item">
+        <p class="num">03</p>
+        <h3>International by design</h3>
+        <p>Contemporary painting and graphic art don't belong to one city or scene. Our open calls are open to artists anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-cta reveal">
+  <div class="wrap">
+    <h2>Have a question?</h2>
+    <p>Whether it's about the current open call, the platform, or something else &mdash; we read everything that comes in.</p>
+    <a href="mailto:hello@rurigallery.com" class="cta-solid">hello@rurigallery.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide footer-inner">
+    <span>&copy; 2026 Ruri Gallery</span>
+    <div class="footer-links">
+      <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram</a>
+      <a href="../privacy/index.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -9,32 +9,35 @@
 <link rel="apple-touch-icon" href="../brand/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --black:#0a0a0a;
+    --ink:#101114;
     --white:#ffffff;
-    --gray-50:#f7f7f5;
-    --gray-100:#ececea;
-    --gray-300:#cccac4;
-    --gray-400:#9a9a94;
-    --gray-600:#5c5c58;
-    --font-display:'Fraunces', serif;
+    --mist:#f1f2f4;
+    --mist-200:#e7e8eb;
+    --line:#dcdde1;
+    --gray-400:#8d8f95;
+    --gray-600:#52545a;
+    --font-display:'Space Grotesk', sans-serif;
     --font-mark:'Archivo', sans-serif;
     --font-body:'Inter', sans-serif;
-    --max:760px;
+    --max:780px;
+    --max-wide:920px;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{
     font-family:var(--font-body);
-    color:var(--black);
+    color:var(--ink);
     background:var(--white);
     -webkit-font-smoothing:antialiased;
-    line-height:1.6;
+    line-height:1.65;
   }
   a{color:inherit;text-decoration:none;}
-  ::selection{background:var(--black);color:var(--white);}
+  em{font-style:normal;font-weight:700;}
+  ::selection{background:var(--ink);color:var(--white);}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .wrap-wide{max-width:var(--max-wide);margin:0 auto;padding:0 28px;}
   .eyebrow{
     font-family:var(--font-mark);font-size:11px;font-weight:700;letter-spacing:0.16em;
     text-transform:uppercase;color:var(--gray-600);
@@ -43,42 +46,60 @@
   .reveal.is-visible{opacity:1;transform:translateY(0);}
   @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
 
-  /* ===== HEADER ===== */
-  header{padding:36px 0;}
+  /* ===== HEADER / NAV ===== */
+  header{padding:28px 0;border-bottom:1px solid var(--line);}
   .header-inner{display:flex;align-items:center;justify-content:space-between;}
-  .logo{display:flex;align-items:center;gap:13px;}
+  .logo{display:flex;align-items:center;gap:13px;flex-shrink:0;}
   .logo-ruri{font-family:var(--font-mark);font-weight:700;font-size:17px;letter-spacing:0.14em;}
-  .logo-div{width:1px;height:15px;background:var(--black);}
+  .logo-div{width:1px;height:15px;background:var(--ink);}
   .logo-gallery{font-family:var(--font-mark);font-weight:600;font-size:10px;letter-spacing:0.2em;color:var(--gray-600);}
-  .back-link{font-family:var(--font-mark);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid var(--black);padding-bottom:3px;}
+  .nav-right{display:flex;align-items:center;gap:30px;}
+  .nav-link{font-family:var(--font-mark);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-600);
+    padding-bottom:3px;border-bottom:1px solid transparent;transition:color .2s, border-color .2s;}
+  .nav-link:hover{color:var(--ink);}
+  .nav-link.active{color:var(--ink);border-bottom-color:var(--ink);}
+  .nav-ig{display:inline-flex;align-items:center;color:var(--gray-600);transition:color .2s;}
+  .nav-ig:hover{color:var(--ink);}
+  .nav-pill{font-family:var(--font-mark);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    background:var(--ink);color:var(--white);padding:10px 20px;border-radius:999px;}
+  .nav-pill:hover{opacity:0.85;}
+  .ig-svg{width:15px;height:15px;display:block;}
+  .ham{display:none;flex-direction:column;gap:5px;padding:4px;background:none;border:none;cursor:pointer;}
+  .ham span{display:block;width:20px;height:1.5px;background:var(--ink);}
+  .mobile-menu{display:none;flex-direction:column;border-top:1px solid var(--line);padding:8px 0 4px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-family:var(--font-mark);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--gray-600);padding:13px 0;border-bottom:1px solid var(--mist-200);}
+  .mobile-menu a.active{color:var(--ink);}
+  .mobile-menu a:last-child{border-bottom:none;}
+  @media (max-width:760px){.nav-right .nav-link, .nav-right .nav-pill{display:none;}.ham{display:flex;}}
 
   /* ===== HERO ===== */
-  .hero{padding:24px 0 64px;text-align:center;}
+  .hero{padding:56px 0 56px;text-align:center;}
   .badge{
-    display:inline-block;font-family:var(--font-mark);font-size:11px;font-weight:500;
-    letter-spacing:0.14em;text-transform:uppercase;
-    border:1px solid var(--black);border-radius:999px;padding:8px 18px;margin-bottom:32px;
+    display:inline-block;font-family:var(--font-mark);font-size:11px;font-weight:600;
+    letter-spacing:0.12em;text-transform:uppercase;
+    border:1px solid var(--ink);border-radius:999px;padding:8px 18px;margin-bottom:32px;
   }
   .hero h1{
-    font-family:var(--font-display);font-weight:500;font-size:clamp(32px,5.4vw,52px);
+    font-family:var(--font-display);font-weight:600;font-size:clamp(32px,5.4vw,52px);
     line-height:1.14;letter-spacing:-0.01em;
   }
-  .hero h1 em{font-style:italic;}
   .hero p.lead{
     margin:24px auto 0;max-width:520px;color:var(--gray-600);font-size:16px;
   }
   .hero .cta-row{margin-top:32px;}
   .cta-link{
     display:inline-block;font-family:var(--font-mark);font-size:12px;font-weight:700;
-    letter-spacing:0.08em;text-transform:uppercase;background:var(--black);color:var(--white);
-    padding:14px 28px;
+    letter-spacing:0.08em;text-transform:uppercase;background:var(--ink);color:var(--white);
+    padding:15px 30px;border-radius:999px;
   }
   .cta-link:hover{opacity:0.85;}
 
   /* ===== MANIFESTO ===== */
-  .manifesto{background:var(--gray-50);padding:56px 0;text-align:center;}
+  .manifesto{background:var(--mist);padding:56px 0;text-align:center;}
   .manifesto blockquote{
-    font-family:var(--font-display);font-style:italic;font-weight:500;
+    font-family:var(--font-display);font-weight:600;
     font-size:clamp(18px,2.2vw,24px);line-height:1.5;max-width:600px;margin:0 auto;
   }
 
@@ -90,17 +111,17 @@
   @media (max-width:680px){.grid{grid-template-columns:1fr;gap:24px;}.grid p{max-width:340px;}}
 
   /* ===== DATES ===== */
-  .dates{background:var(--gray-50);padding:56px 0;text-align:center;}
+  .dates{background:var(--mist);padding:56px 0;text-align:center;}
   .dates .eyebrow{display:block;margin-bottom:28px;}
   .dates-row{display:flex;justify-content:center;gap:64px;flex-wrap:wrap;}
   .date-item__label{font-size:11px;color:var(--gray-400);letter-spacing:0.04em;margin-bottom:6px;}
-  .date-item__date{font-family:var(--font-display);font-size:24px;font-weight:500;}
+  .date-item__date{font-family:var(--font-display);font-size:24px;font-weight:600;}
 
   /* ===== FORM ===== */
   .apply{padding:72px 0 80px;}
   .apply-head{text-align:center;margin-bottom:44px;}
   .apply-head h2{
-    font-family:var(--font-display);font-weight:500;font-size:clamp(26px,3.6vw,34px);
+    font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3.6vw,34px);
     margin-top:14px;
   }
   .apply-head p{color:var(--gray-600);font-size:14px;margin-top:12px;}
@@ -112,39 +133,66 @@
     letter-spacing:0.12em;text-transform:uppercase;color:var(--gray-600);margin-bottom:8px;
   }
   .fg input,.fg textarea{
-    width:100%;background:transparent;border:none;border-bottom:1px solid var(--gray-300);
-    color:var(--black);font-family:var(--font-body);font-size:14px;padding:10px 2px;outline:none;
+    width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);
+    color:var(--ink);font-family:var(--font-body);font-size:14px;padding:10px 2px;outline:none;
     transition:border-color 0.2s;resize:vertical;
   }
   .fg input::placeholder,.fg textarea::placeholder{color:var(--gray-400);}
-  .fg input:focus,.fg textarea:focus{border-color:var(--black);}
+  .fg input:focus,.fg textarea:focus{border-color:var(--ink);}
   .fg textarea{min-height:76px;}
 
   .btn-submit{
-    width:100%;background:var(--black);color:var(--white);border:none;font-family:var(--font-mark);
+    width:100%;background:var(--ink);color:var(--white);border:none;font-family:var(--font-mark);
     font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
-    padding:16px 0;cursor:pointer;margin-top:8px;transition:opacity 0.2s;
+    padding:16px 0;cursor:pointer;margin-top:8px;transition:opacity 0.2s;border-radius:999px;
   }
   .btn-submit:hover{opacity:0.85;}
   .btn-submit:disabled{opacity:0.5;cursor:default;}
   .form-note{font-size:11px;color:var(--gray-400);margin-top:16px;letter-spacing:0.02em;line-height:1.6;}
 
   /* ===== FOOTER ===== */
-  footer{padding:32px 0 40px;border-top:1px solid var(--gray-100);}
+  footer{padding:32px 0 40px;border-top:1px solid var(--line);}
   .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--gray-600);}
-  .footer-inner a:hover{color:var(--black);}
+  .footer-inner a:hover{color:var(--ink);}
+  .footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap header-inner">
+  <div class="wrap-wide header-inner">
     <a href="../index.html" class="logo">
       <span class="logo-ruri">RURI</span>
       <span class="logo-div"></span>
       <span class="logo-gallery">GALLERY</span>
     </a>
-    <a href="../index.html" class="back-link">Home</a>
+    <div class="nav-right">
+      <a href="../about/index.html" class="nav-link">About</a>
+      <a href="../artists/index.html" class="nav-link">Artists</a>
+      <a href="index.html" class="nav-link active">Open Call</a>
+      <a href="../newsletter/index.html" class="nav-link">Newsletter</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
+        <svg class="ig-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="#apply" class="nav-pill">Apply now</a>
+    </div>
+    <button class="ham" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="wrap-wide">
+      <a href="../index.html">Home</a>
+      <a href="../about/index.html">About</a>
+      <a href="../artists/index.html">Artists</a>
+      <a href="index.html" class="active">Open Call</a>
+      <a href="../newsletter/index.html">Newsletter</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram</a>
+    </div>
   </div>
 </header>
 
@@ -222,9 +270,13 @@
 </section>
 
 <footer>
-  <div class="wrap footer-inner">
+  <div class="wrap-wide footer-inner">
     <span>&copy; 2026 Ruri Gallery</span>
-    <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a>
+    <div class="footer-links">
+      <a href="mailto:hello@rurigallery.com">hello@rurigallery.com</a>
+      <a href="https://instagram.com/ruri_gallery" target="_blank" rel="noopener">Instagram</a>
+      <a href="../privacy/index.html">Privacy Policy</a>
+    </div>
   </div>
 </footer>
 
